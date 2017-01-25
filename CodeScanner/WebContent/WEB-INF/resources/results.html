@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>Code Scanner - Search Results</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">	
+</head>
+
+<body>
+	<h1>Search Results</h1>
+	
+	<div id="results-panel">
+		<table id="results-table">
+			<tr id="results-table-head">
+				<th>Source File</th>
+				<th>Candidate File</th>
+				<th>Source Line</th>
+				<th>Candidate Line</th>
+				<th>Length</th>
+				<th>Similarity Score</th>
+				<th>
+					<span id="results-table-ok-head"
+					title="Use these markings to track whether or not a match is acceptable. A green check means the match is negligible, or otherwise not of concern. A red cross means the match is significant and needs to be addressed.">OK?</span>
+				</th>
+			</tr>
+		</table>
+	</div>
+	
+	<div class="settings-panel">
+		<div class="main-text">Filter Settings</div>
+		<input type="range" class="slider" id="match-slider" min="0" max="100"
+				oninput="setSliderVal(this.value, 'match-out')"
+				onchange="setSliderVal(this.value, 'match-out')">
+		<div class="settings-value" id="match-slider-value">Show results with match rating above:
+			<span id="match-out"></span>%
+		</div>
+		<div class="settings-value">Show results with length of 
+			<span id="results-table-ok-head"
+					title="Minimum length of 2 lines">at least</span>:
+			<input type="text" id="length-text" style="width:3em;"> lines
+		</div>
+		<button class="settings-button" id="threshold-button"
+				onclick="updateFilters();">
+			Update Filters
+		</button>
+	</div>
+	
+	<!-- TODO: Implement REST API call for retrieving session progress info
+	<div id="search-progress-info">
+		<div id="search-progress-items">Fetching search progress data...</div>
+		<progress id="search-progress-bar" value="0" max="100" style="width:20em;"></progress>
+	</div>
+	-->
+	
+	<div class="source-panel">
+		<div id="source-name" class="main-text">Submitted File Source</div>
+		<textarea id="source-text" rows="10" cols="36" readonly>Selected result's submitted file source code goes here.</textarea>
+	</div>
+	
+	<div class="source-panel">
+		<div id="candidate-name" class="main-text">Candidate File Source</div>
+		<textarea id="candidate-text" rows="10" cols="36" readonly>Selected result's candidate file source code goes here.</textarea>
+	</div>
+	
+	<img src="img/bronto-logo-square.png" alt="Bronto logo" id="bg-image" height=138px width=200px>
+	
+	<script src="js/codeScannerLib.js"></script>
+	<script src="js/refreshResults.js"></script>
+</body>
+</html>

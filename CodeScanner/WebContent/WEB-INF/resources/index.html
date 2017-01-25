@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<title>Code Scanner - Start Page</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">	
+</head>
+
+<body>
+	<h1>Bronto Code Scanner</h1>
+	
+	<div class="repo-field">
+		<div class="main-text">To begin, enter a
+			<span style="border-bottom:1px dotted #000;cursor:help;"
+					title="This URL should link to the master branch on a public GitHub repository. &#10;Example: https://github.com/username/reponame">
+				GitHub URL:
+			</span>
+		</div>
+		<input id="repo-field" type="text" size="60"><br />
+		
+		<button onclick="startSearch(document.getElementById('repo-field').value)">
+			Begin Scan
+		</button>
+	</div>
+	
+	<div id="error-msg"></div>
+	
+	<img src="img/bronto-logo-square.png" alt="Bronto logo" id="bg-image" height=138px width=200px>
+	
+	<script src="js/codeScannerLib.js"></script>
+	<script src="js/startSearch.js"></script>
+	
+</body>
+</html>

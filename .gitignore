@@ -1,0 +1,8 @@
+CodeScanner/bin/**
+CodeScanner/.settings/**
+CodeScanner/target/**
+CodeScanner/.classpath
+target/**
+.project
+.settings/**
+/bin/
